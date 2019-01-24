@@ -16,7 +16,7 @@ resource "aws_instance" "ubuntu" {
     Name        = "${var.name}"
     TTL         = "${var.ttl}"
     Owner       = "${var.owner}"
-    Description = "This is a Customer7 demo description"
+    Description = "This is a Customer8 demo description"
   }
 }
 
@@ -31,7 +31,7 @@ resource "aws_iam_policy" "policy" {
   "Statement": [
     {
       "Action": [
-        "iam:*"
+        "iam:List*"
       ],
       "Effect": "Allow",
       "Resource": "*"
