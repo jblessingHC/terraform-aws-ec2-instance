@@ -31,7 +31,7 @@ resource "aws_iam_policy" "policy" {
   "Statement": [
     {
       "Action": [
-        "iam::*"
+        "iam:*"
       ],
       "Effect": "Allow",
       "Resource": "*"
