@@ -16,7 +16,7 @@ resource "aws_instance" "ubuntu" {
     Name        = "${var.name}"
     ttl         = "${var.ttl}"
     owner       = "${var.owner}"
-    Description = "This is a Customer38 demo description"
+    Description = "This is a Customer39 demo description"
   }
 }
 
@@ -39,4 +39,5 @@ resource "aws_iam_policy" "policy" {
   ]
 }
 EOF
+
 }
