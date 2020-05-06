@@ -4,6 +4,7 @@ terraform {
 
 provider "aws" {
   region = "${var.aws_region}"
+  profile = "${var.aws_profile}"
 }
 
 resource "aws_instance" "ubuntu" {
@@ -13,14 +14,30 @@ resource "aws_instance" "ubuntu" {
 
   tags {
     Name        = "${var.name}"
-    TTL         = "${var.ttl}"
-    Owner       = "${var.owner}"
-    Purpose     = "Foo"
+    ttl         = "${var.ttl}"
+    owner       = "${var.owner}"
+    Description = "This is a Customer38 demo description"
   }
 }
 
-resource "null_resource" "test_saas_local_exec_sudo" {
-   provisioner "local-exec" {
-       command = "sudo whoami"
-   }
+resource "aws_iam_policy" "policy" {
+  name        = "${var.owner}_sentinel_test_policy"
+  path        = "/"
+  description = "Policy to test Sentinel permissions checks"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "iam:List*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}
+EOF
+
 }
