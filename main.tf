@@ -21,7 +21,7 @@ resource "aws_instance" "ubuntu" {
 }
 
 resource "aws_iam_policy" "policy" {
-  name        = "${var.owner}_sentinel_test_policy"
+  name        = "${var.owner}_sentinel_test_policy_qa"
   path        = "/"
   description = "Policy to test Sentinel permissions checks"
 
