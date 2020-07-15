@@ -16,7 +16,7 @@ resource "aws_instance" "ubuntu" {
     Name        = "${var.name}"
     ttl         = "${var.ttl}"
     owner       = "${var.owner}"
-    Description = "This is a Customer41 demo description"
+    Description = "This is a Customer42 demo description"
   }
 }
 
