@@ -1,24 +1,21 @@
 terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.27"
-    }
-  }
-
-  required_version = ">= 0.14.9"
+  required_version = ">= 0.11.0"
 }
 
 provider "aws" {
-  profile = "default"
-  region  = "us-west-2"
+  region = "${var.aws_region}"
+  profile = "${var.aws_profile}"
 }
 
-resource "aws_instance" "app_server" {
-  ami           = "ami-08d70e59c07c61a3a"
-  instance_type = "t2.micro"
+resource "aws_instance" "ubuntu" {
+  ami               = "${var.ami_id}"
+  instance_type     = "${var.instance_type}"
+  availability_zone = "${var.aws_region}a"
 
-  tags = {
-    Name = var.instance_name
+  tags {
+    Name        = "${var.name}"
+    TTL         = "${var.ttl}"
+    Owner       = "${var.owner}"
+    Description = "This is a demo description"
   }
 }
