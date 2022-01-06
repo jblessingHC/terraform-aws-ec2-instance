@@ -9,8 +9,8 @@ variable "aws_profile" {
 }
 
 variable "ami_id" {
-  description = "ID of the AMI to provision. Default is Ubuntu 14.04 Base Image"
-  default = "ami-2e1ef954"
+  description = "ID of the AMI to provision. Default is Ubuntu 16.o4 LTS Base Image"
+  default = "ami-05803413c51f242b7 "
 }
 
 variable "instance_type" {
